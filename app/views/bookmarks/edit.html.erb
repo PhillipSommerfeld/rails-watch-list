@@ -1,0 +1,8 @@
+<h1>Update Bookmark: </h1>
+
+<%= simple_form_for(@bookmark) do |t| %>
+  <%= t.input :comment %>
+  <%= t.input :movie_id, collection: @movies %>
+  <%= t.submit %>
+<% end %>
+<p> <%= link_to "Cancel", list_path(@bookmark.list_id) %> </p>

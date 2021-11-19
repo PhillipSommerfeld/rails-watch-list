@@ -1,0 +1,13 @@
+<h1> Lists: </h1>
+
+<p> <%= link_to "Create", new_list_path %> </p>
+<ul>
+  <% @lists.each do |list| %>
+  <li> <%= link_to "#{list.name}", list_path(list) %></li>
+  <div class = "trash">
+    <%= link_to list_path(list), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="far fa-trash-alt"></i>
+    <% end %>
+  </div>
+  <% end %>
+</ul>

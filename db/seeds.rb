@@ -6,12 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-List.delete_all
-Bookmark.delete_all
-Movie.delete_all
+Bookmark.destroy_all
+List.destroy_all
+Movie.destroy_all
 
-x = 0
-y = 0
 20.times do
   movies = Movie.create(
     title: Faker::Movie.title,
@@ -20,14 +18,4 @@ y = 0
     poster_url: "https://picsum.photos/#{rand(100..300)}"
   )
   movies.save
-  lists = List.create(
-    name: Faker::Name.first_name
-  )
-  lists.save
-  bookmarks = Bookmark.create(
-    comment: Faker::String.random(length: 6..15),
-    movie_id: x,
-    list_id: y
-  )
-  bookmarks.save
 end
